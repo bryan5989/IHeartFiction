@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using FictionScraper.Shared;
-using Microsoft.EntityFrameworkCore;
+﻿using FictionScraper.Shared;
+using System;
 
 namespace FictionScraper.Server
 {

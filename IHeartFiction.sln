@@ -5,14 +5,30 @@ VisualStudioVersion = 16.0.28917.182
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FictionScraper.Server", "src\FictionScraper.Server\FictionScraper.Server.csproj", "{DA4186F7-AA39-4109-8560-363619D693A9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FictionScraper.Client", "src\FictionScraper.Client\FictionScraper.Client.csproj", "{80C22EF6-C723-473C-A804-10EAF4B92E1E}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FictionScraper.Shared", "src\FictionScraper.Shared\FictionScraper.Shared.csproj", "{F834A4B3-9D53-4D13-ABD0-6A6D9CC8FBD4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RepoItems", "RepoItems", "{258754FF-AC47-443E-A634-BD8E5FDB28E8}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{FDA2CA27-A7B3-4EE2-9D98-68182974D8ED}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IHeartFiction.Domain", "src\Domain\IHeartFiction.Domain\IHeartFiction.Domain.csproj", "{3AACCD70-B0A9-4E84-9B76-CDF8B7E66B72}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{89119548-FDDA-48DB-AC3A-F41BF4471232}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{6EAB0A38-E840-4799-B2AA-6C15C011ED2B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IHeartFiction.Application.Server", "src\Application\IHeartFiction.Application.Server\IHeartFiction.Application.Server.csproj", "{E0649A00-50B3-4894-9F40-C972263612D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IHeartFiction.Application.Client", "src\Application\IHeartFiction.Application.Client\IHeartFiction.Application.Client.csproj", "{1EDA1725-45B8-4E53-94FC-EAB23C8B6E2A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IHeartFiction.Application.Shared", "src\Application\IHeartFiction.Application.Shared\IHeartFiction.Application.Shared.csproj", "{203EB6CA-876A-43DE-8B6C-1A3D72141CA2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{8A876F4C-D2F2-437F-BA58-52C1604E6CA6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IHeartFiction.Infrastructure", "src\Infrastructure\IHeartFiction.Infrastructure\IHeartFiction.Infrastructure.csproj", "{32ED1308-27D1-4EAF-A3D7-F39318FA1839}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,17 +40,43 @@ Global
 		{DA4186F7-AA39-4109-8560-363619D693A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA4186F7-AA39-4109-8560-363619D693A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA4186F7-AA39-4109-8560-363619D693A9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{80C22EF6-C723-473C-A804-10EAF4B92E1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{80C22EF6-C723-473C-A804-10EAF4B92E1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{80C22EF6-C723-473C-A804-10EAF4B92E1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{80C22EF6-C723-473C-A804-10EAF4B92E1E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F834A4B3-9D53-4D13-ABD0-6A6D9CC8FBD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F834A4B3-9D53-4D13-ABD0-6A6D9CC8FBD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F834A4B3-9D53-4D13-ABD0-6A6D9CC8FBD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F834A4B3-9D53-4D13-ABD0-6A6D9CC8FBD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AACCD70-B0A9-4E84-9B76-CDF8B7E66B72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AACCD70-B0A9-4E84-9B76-CDF8B7E66B72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AACCD70-B0A9-4E84-9B76-CDF8B7E66B72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AACCD70-B0A9-4E84-9B76-CDF8B7E66B72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0649A00-50B3-4894-9F40-C972263612D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0649A00-50B3-4894-9F40-C972263612D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0649A00-50B3-4894-9F40-C972263612D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0649A00-50B3-4894-9F40-C972263612D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1EDA1725-45B8-4E53-94FC-EAB23C8B6E2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EDA1725-45B8-4E53-94FC-EAB23C8B6E2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EDA1725-45B8-4E53-94FC-EAB23C8B6E2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EDA1725-45B8-4E53-94FC-EAB23C8B6E2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{203EB6CA-876A-43DE-8B6C-1A3D72141CA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{203EB6CA-876A-43DE-8B6C-1A3D72141CA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{203EB6CA-876A-43DE-8B6C-1A3D72141CA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{203EB6CA-876A-43DE-8B6C-1A3D72141CA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32ED1308-27D1-4EAF-A3D7-F39318FA1839}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32ED1308-27D1-4EAF-A3D7-F39318FA1839}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32ED1308-27D1-4EAF-A3D7-F39318FA1839}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32ED1308-27D1-4EAF-A3D7-F39318FA1839}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3AACCD70-B0A9-4E84-9B76-CDF8B7E66B72} = {89119548-FDDA-48DB-AC3A-F41BF4471232}
+		{89119548-FDDA-48DB-AC3A-F41BF4471232} = {FDA2CA27-A7B3-4EE2-9D98-68182974D8ED}
+		{6EAB0A38-E840-4799-B2AA-6C15C011ED2B} = {FDA2CA27-A7B3-4EE2-9D98-68182974D8ED}
+		{E0649A00-50B3-4894-9F40-C972263612D9} = {6EAB0A38-E840-4799-B2AA-6C15C011ED2B}
+		{1EDA1725-45B8-4E53-94FC-EAB23C8B6E2A} = {6EAB0A38-E840-4799-B2AA-6C15C011ED2B}
+		{203EB6CA-876A-43DE-8B6C-1A3D72141CA2} = {6EAB0A38-E840-4799-B2AA-6C15C011ED2B}
+		{8A876F4C-D2F2-437F-BA58-52C1604E6CA6} = {FDA2CA27-A7B3-4EE2-9D98-68182974D8ED}
+		{32ED1308-27D1-4EAF-A3D7-F39318FA1839} = {8A876F4C-D2F2-437F-BA58-52C1604E6CA6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5B9BF692-6E1B-4255-9D04-026C6A7CF06F}

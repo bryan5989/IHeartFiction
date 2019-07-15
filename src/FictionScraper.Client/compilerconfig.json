@@ -1,7 +1,10 @@
 ﻿[
   {
     "outputFile": "wwwroot/css/fonts/open-iconic-bootstrap.css",
-    "inputFile": "wwwroot/lib/open-iconic/font/css/open-iconic-bootstrap.scss",
+    "inputFile": "wwwroot/lib/open-iconic/fonts/css/open-iconic-bootstrap.scss",
+    "minify": {
+      "enabled": true
+    },
     "sourceMap": true
   }
 ]

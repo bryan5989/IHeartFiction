@@ -12,13 +12,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FictionScraper.Client\FictionScraper.Client.csproj" />
-    <ProjectReference Include="..\FictionScraper.Shared\FictionScraper.Shared.csproj" />
-  </ItemGroup>
-
-
-  <ItemGroup>
-    <PackageReference Include="HtmlAgilityPack" Version="1.11.8" />
+    <PackageReference Include="HtmlAgilityPack" Version="1.11.9" />
     <PackageReference Include="Microsoft.AspNetCore.Blazor.Server" Version="3.0.0-preview6.19307.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.0.0-preview6.19304.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="3.0.0-preview6.19304.10" />
@@ -36,17 +30,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="SwaggerCustom\swagger_custom_index.html" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Watch Remove="Controllers\TestController.cs" />
     <Watch Remove="ExceptionMiddleware.cs" />
-    <Watch Remove="Extensions\ApplicationBuilderExtensions.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="SwaggerCustom\swagger_custom_index.html" />
+    <ProjectReference Include="..\FictionScraper.Shared\FictionScraper.Shared.csproj" />
   </ItemGroup>
 
 </Project>
