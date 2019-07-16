@@ -91,7 +91,7 @@ namespace IHeartFiction.Domain.AggregateModels.StoryAggregate
             var chapter = _chapters.Find(p => p.Id == id);
             _chapters.Remove(chapter);
 
-            AddDomainEvent
+            AddDomainEvent(new ChapterRemoved(this.Id, id));
         }
     }
 }
