@@ -22,7 +22,8 @@ namespace IHeartFiction.Infrastructure
 
         public DbSet<StoryAggregate.Author> StoryAuthors { get; set; }
         public DbSet<StoryAggregate.Chapter> StoryChapters { get; set; }
-        public DbSet<StoryAggregate.Comment> StoryComment { get; set; }
+        public DbSet<StoryAggregate.Comment> StoryComments { get; set; }
+        public DbSet<StoryAggregate.Meta> StoryMeta { get; set; }
         public DbSet<StoryAggregate.Story> Stories { get; set; }
 
         private FictionContext(DbContextOptions<FictionContext> options) : base(options)

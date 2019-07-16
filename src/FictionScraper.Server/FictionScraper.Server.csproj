@@ -30,11 +30,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Watch Remove="Controllers\TestController.cs" />
-    <Watch Remove="ExceptionMiddleware.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\FictionScraper.Shared\FictionScraper.Shared.csproj" />
   </ItemGroup>
 
