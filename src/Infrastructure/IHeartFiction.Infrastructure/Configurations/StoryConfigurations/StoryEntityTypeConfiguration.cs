@@ -10,7 +10,7 @@ using IHeartFiction.Domain.AggregateModels.StoryAggregate;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace IHeartFiction.Infrastructure.Configurations
+namespace IHeartFiction.Infrastructure.Configurations.StoryConfigurations
 {
     public class StoryEntityTypeConfiguration : IEntityTypeConfiguration<Story>
     {

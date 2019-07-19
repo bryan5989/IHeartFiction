@@ -6,13 +6,18 @@
  * https://www.gnu.org/licenses/gpl-3.0.en.html
  */
 
-using System;
 using System.Collections.Generic;
-using System.Text;
+using IHeartFiction.Domain.SeedWork;
 
 namespace IHeartFiction.Domain.AggregateModels.StoryAggregate
 {
-    public class Meta
+    public class Meta : ValueObject
     {
+        public bool AllowsAnonymousContent { get; }
+
+        protected override IEnumerable<object> GetAtomicValues()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

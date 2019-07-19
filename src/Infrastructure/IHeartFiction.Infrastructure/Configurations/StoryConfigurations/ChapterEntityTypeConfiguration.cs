@@ -12,23 +12,28 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace IHeartFiction.Infrastructure.Configurations.StoryConfigurations
 {
-    public class AuthorEntityTypeConfiguration : IEntityTypeConfiguration<Author>
+    public class ChapterEntityTypeConfiguration : IEntityTypeConfiguration<Chapter>
     {
-        public void Configure(EntityTypeBuilder<Author> builder)
+        public void Configure(EntityTypeBuilder<Chapter> builder)
         {
             builder
                 .Ignore(p => p.DomainEvents);
 
             builder
-                .HasKey(p => p.Id);
+                .HasKey(p => new { p.StoryId, p.Id });
 
             builder
-                .Property(p => p.Id)
-                .ValueGeneratedNever();
-
-            builder
-                .Property(p => p.Name)
+                .Property(p => p.Title)
                 .IsRequired();
+
+            builder
+                .Property(p => p.HtmlContent)
+                .IsRequired();
+
+            builder
+                .HasOne<Story>()
+                .WithMany(p => p.Chapters)
+                .HasForeignKey(p => p.StoryId);
         }
     }
 }

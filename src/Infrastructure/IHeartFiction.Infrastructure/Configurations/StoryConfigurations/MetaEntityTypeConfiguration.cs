@@ -12,23 +12,12 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace IHeartFiction.Infrastructure.Configurations.StoryConfigurations
 {
-    public class AuthorEntityTypeConfiguration : IEntityTypeConfiguration<Author>
+    public class MetaEntityTypeConfiguration : IEntityTypeConfiguration<Meta>
     {
-        public void Configure(EntityTypeBuilder<Author> builder)
+        // TODO: Implement
+        public void Configure(EntityTypeBuilder<Meta> builder)
         {
-            builder
-                .Ignore(p => p.DomainEvents);
-
-            builder
-                .HasKey(p => p.Id);
-
-            builder
-                .Property(p => p.Id)
-                .ValueGeneratedNever();
-
-            builder
-                .Property(p => p.Name)
-                .IsRequired();
+            throw new System.NotImplementedException();
         }
     }
 }

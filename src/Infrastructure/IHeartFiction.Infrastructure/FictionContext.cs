@@ -6,13 +6,14 @@
  * https://www.gnu.org/licenses/gpl-3.0.en.html
  */
 
-using StoryAggregate = IHeartFiction.Domain.AggregateModels.StoryAggregate;
 using IHeartFiction.Domain.SeedWork;
-using Microsoft.EntityFrameworkCore;
+using IHeartFiction.Infrastructure.Configurations.StoryConfigurations;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
-using System;
+using StoryAggregate = IHeartFiction.Domain.AggregateModels.StoryAggregate;
 
 namespace IHeartFiction.Infrastructure
 {
@@ -20,10 +21,6 @@ namespace IHeartFiction.Infrastructure
     {
         private readonly IMediator _mediator;
 
-        public DbSet<StoryAggregate.Author> StoryAuthors { get; set; }
-        public DbSet<StoryAggregate.Chapter> StoryChapters { get; set; }
-        public DbSet<StoryAggregate.Comment> StoryComments { get; set; }
-        public DbSet<StoryAggregate.Meta> StoryMeta { get; set; }
         public DbSet<StoryAggregate.Story> Stories { get; set; }
 
         private FictionContext(DbContextOptions<FictionContext> options) : base(options)
@@ -39,7 +36,7 @@ namespace IHeartFiction.Infrastructure
         }
 
 
-        public async Task<bool> SaveEntitiesAsync(CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<bool> SaveEntitiesAsync(CancellationToken cancellationToken = default)
         {
             await _mediator.DispatchDomainEventsAsync(this);
             await base.SaveChangesAsync(cancellationToken);
@@ -49,7 +46,10 @@ namespace IHeartFiction.Infrastructure
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            throw new NotImplementedException();
+            builder.ApplyConfiguration(new AuthorEntityTypeConfiguration());
+            builder.ApplyConfiguration(new ChapterEntityTypeConfiguration());
+            builder.ApplyConfiguration(new CommentEntityTypeConfiguration());
+            builder.ApplyConfiguration(new StoryEntityTypeConfiguration());
         }
     }
 }
