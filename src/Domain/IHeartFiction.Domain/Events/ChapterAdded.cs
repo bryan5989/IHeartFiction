@@ -12,7 +12,7 @@ using System.Text;
 
 namespace IHeartFiction.Domain.Events
 {
-    class ChapterAdded
+    public class ChapterAdded
     {
     }
 }

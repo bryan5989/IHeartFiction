@@ -18,8 +18,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Domain\IHeartFiction.Domain\IHeartFiction.Domain.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\IHeartFiction.Infrastructure\IHeartFiction.Infrastructure.csproj" />
     <ProjectReference Include="..\IHeartFiction.Application.Client\IHeartFiction.Application.Client.csproj" />
-    <ProjectReference Include="..\IHeartFiction.Application.Shared\IHeartFiction.Application.Shared.csproj" />
   </ItemGroup>
 
 </Project>
