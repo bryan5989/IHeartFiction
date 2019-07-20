@@ -44,7 +44,14 @@ namespace IHeartFiction.Infrastructure.Repositories
             return story;
         }
 
-        public async Task<Story> Post(Story story) => (await _context.Stories.AddAsync(story)).Entity;
+        public async Task<Story> Post(Story story)
+        {
+            var saved = (await _context.Stories.AddAsync(story)).Entity;
+
+            await _context.SaveChangesAsync();
+
+            return saved;
+        }
 
         public async Task<Story> Delete(int id)
         {
@@ -54,12 +61,26 @@ namespace IHeartFiction.Infrastructure.Repositories
 
             _context.Stories.Remove(story);
 
+            await _context.SaveChangesAsync();
+
             return story;
         }
 
         public async Task<Paginated<Story>> GetList(int page = 0, int perPage = 10)
         {
-            throw new NotImplementedException();
+            var stories = await _context
+                .Stories
+                .Skip(page * perPage)
+                .Take(page)
+                .ToListAsync();
+
+            var count = _context
+                .Stories
+                .Count();
+
+            var pages = count == 0 ? 0 : count / perPage;
+
+            return new Paginated<Story>(page, pages, perPage, stories);
         }
 
         private bool Exists(int id) => _context.Stories.Count(p => p.Id == id) != 0;
