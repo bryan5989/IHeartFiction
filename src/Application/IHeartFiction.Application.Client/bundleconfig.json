@@ -1,0 +1,42 @@
+﻿[
+  {
+    "inputFiles": [
+      "wwwroot/lib/jquery/jquery.js"
+
+    ],
+    "outputFileName": "wwwroot/js/jquery.js",
+    "minify": {
+      "enabled": true
+    }
+  },
+  {
+    "inputFiles": [
+      "wwwroot/lib/popper/umd/popper.js"
+
+    ],
+    "outputFileName": "wwwroot/js/popper.js",
+    "minify": {
+      "enabled": true
+    }
+  },
+  {
+    "inputFiles": [
+      "wwwroot/lib/bootstrap/css/bootstrap.css"
+
+    ],
+    "outputFileName": "wwwroot/css/bootstrap.css",
+    "minify": {
+      "enabled": true
+    }
+  },
+  {
+    "inputFiles": [
+      "wwwroot/lib/bootstrap/js/bootstrap.js"
+
+    ],
+    "outputFileName": "wwwroot/js/bootstrap.js",
+    "minify": {
+      "enabled": true
+    }
+  }
+]
