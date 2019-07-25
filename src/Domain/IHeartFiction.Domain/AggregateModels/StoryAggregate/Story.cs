@@ -117,7 +117,7 @@ namespace IHeartFiction.Domain.AggregateModels.StoryAggregate
 
             if(chapter.ChapterNumber != chapterNumber)
             {
-                chapter.SetOrderTo(chapterNumber);
+                //chapter.SetOrderTo(chapterNumber);
             }
 
             AddDomainEvent(new ChapterModified(this.Id, id, title, htmlContent));

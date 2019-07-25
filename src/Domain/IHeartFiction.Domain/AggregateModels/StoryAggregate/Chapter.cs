@@ -6,6 +6,7 @@
  * https://www.gnu.org/licenses/gpl-3.0.en.html
  */
 
+using IHeartFiction.Domain.Events.Story;
 using IHeartFiction.Domain.SeedWork;
 
 namespace IHeartFiction.Domain.AggregateModels.StoryAggregate
@@ -19,17 +20,17 @@ namespace IHeartFiction.Domain.AggregateModels.StoryAggregate
         ///     This is NOT the primary key of this entity. If not set,
         ///     no organization can be applied by a chapter number.
         /// </summary>
-        public int? ChapterNumber { get; }
+        public int? ChapterNumber { get; private set; }
 
         /// <summary>
         ///     The title of the chapter.
         /// </summary>
-        public string Title { get; }
+        public string Title { get; private set; }
 
         /// <summary>
         ///     The actul content of the chapter.
         /// </summary>
-        public string HtmlContent { get; }
+        public string HtmlContent { get; private set; }
 
         public Chapter(int storyId, string title, string htmlContent, int? chapterNumber = null)
         {
@@ -37,6 +38,28 @@ namespace IHeartFiction.Domain.AggregateModels.StoryAggregate
             HtmlContent = htmlContent;
             Title = title;
             ChapterNumber = chapterNumber;
+        }
+
+        public Chapter UpdateTitle(string title)
+        {
+            if (Title != title)
+            {
+                Title = title;
+                AddDomainEvent(new ChapterTitleModified(StoryId, Id, title));
+            }
+
+            return this;
+        }
+
+        public Chapter UpdateContent(string htmlContent)
+        {
+            if(HtmlContent != htmlContent)
+            {
+                HtmlContent = htmlContent;
+                AddDomainEvent(new ChapterTitleModified(StoryId, Id, htmlContent));
+            }
+
+            return this;
         }
     }
 }

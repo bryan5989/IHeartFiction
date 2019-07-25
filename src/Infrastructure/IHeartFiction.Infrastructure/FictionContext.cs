@@ -35,7 +35,6 @@ namespace IHeartFiction.Infrastructure
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
         }
 
-
         public async Task<bool> SaveEntitiesAsync(CancellationToken cancellationToken = default)
         {
             await _mediator.DispatchDomainEventsAsync(this);

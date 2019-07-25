@@ -13,10 +13,5 @@ namespace IHeartFiction.Domain.AggregateModels.StoryAggregate
     public class Meta
     {
         public bool AllowsAnonymousContent { get; }
-
-        protected override IEnumerable<object> GetAtomicValues()
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

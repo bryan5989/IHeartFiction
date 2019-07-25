@@ -7,7 +7,6 @@
  */
 
 using IHeartFiction.Domain.AggregateModels.StoryAggregate;
-using IHeartFiction.Domain.Models;
 using IHeartFiction.Infrastructure.Exceptions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

@@ -21,7 +21,6 @@ namespace IHeartFiction.Domain.Events.Story
         public string Title { get; }
         public IReadOnlyCollection<Author> Authors => _authors;
 
-
         public StoryCreated(string title, params Author[] authors)
         {
             Contract.Requires(!string.IsNullOrEmpty(title));

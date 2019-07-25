@@ -20,16 +20,10 @@ namespace IHeartFiction.Application.Server.Controllers
     {
         private readonly IStoryRepository _repository;
 
-        public StoriesController(IStoryRepository storyRepository)
-        {
-            _repository = storyRepository;
-        }
+        public StoriesController(IStoryRepository storyRepository) => _repository = storyRepository;
 
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<ActionResult<Paginated<Story>>> Get(int page = 0, int perPage = 10)
-        {
-            return await _repository.GetList(page, perPage);
-        }
+        public async Task<ActionResult<Paginated<Story>>> Get(int page = 0, int perPage = 10) => await _repository.GetList(page, perPage);
     }
 }
