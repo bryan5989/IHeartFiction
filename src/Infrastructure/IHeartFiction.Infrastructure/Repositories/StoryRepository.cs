@@ -7,7 +7,6 @@
  */
 
 using IHeartFiction.Domain.AggregateModels.StoryAggregate;
-using IHeartFiction.Domain.Models;
 using IHeartFiction.Domain.SeedWork;
 using IHeartFiction.Infrastructure.Exceptions;
 using Microsoft.EntityFrameworkCore;

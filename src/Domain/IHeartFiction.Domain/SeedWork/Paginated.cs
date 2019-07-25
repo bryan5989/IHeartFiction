@@ -9,9 +9,8 @@
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using System.Linq;
-using IHeartFiction.Domain.SeedWork;
 
-namespace IHeartFiction.Domain.Models
+namespace IHeartFiction.Domain.SeedWork
 {
     public class Paginated<T> : ValueObject
     {
@@ -23,6 +22,8 @@ namespace IHeartFiction.Domain.Models
         public int TotalPages { get; }
 
         public IReadOnlyCollection<T> Items => _items;
+        public bool HasPreviousPage => (Page > 1);
+        public bool HasNextPage => (Page < TotalPages);
 
         public Paginated(int page, int totalPages, int itemsPerPage, ICollection<T> items)
         {
@@ -40,7 +41,10 @@ namespace IHeartFiction.Domain.Models
 
         protected override IEnumerable<object> GetAtomicValues()
         {
-            throw new System.NotImplementedException();
+            yield return typeof(T);
+            yield return Page;
+            yield return ItemsPerPage;
         }
+
     }
 }

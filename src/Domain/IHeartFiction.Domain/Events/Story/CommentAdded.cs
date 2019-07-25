@@ -6,13 +6,20 @@
  * https://www.gnu.org/licenses/gpl-3.0.en.html
  */
 
-using System;
-using System.Collections.Generic;
-using System.Text;
+using MediatR;
 
-namespace IHeartFiction.Domain.Events
+namespace IHeartFiction.Domain.Events.Story
 {
-    public class ChapterAdded
+    public class CommentAdded : INotification
     {
+        public int StoryId { get; }
+
+        public string Content { get; }
+
+        public CommentAdded(int storyId, string content)
+        {
+            StoryId = storyId;
+            Content = content;
+        }
     }
 }

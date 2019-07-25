@@ -12,7 +12,7 @@ using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using System.Linq;
 
-namespace IHeartFiction.Domain.Events
+namespace IHeartFiction.Domain.Events.Story
 {
     public class StoryCreated : INotification
     {
@@ -27,8 +27,8 @@ namespace IHeartFiction.Domain.Events
             Contract.Requires(!string.IsNullOrEmpty(title));
             Contract.Requires(authors.Length >= 1);
 
-            this.Title = title;
-            this._authors = authors.ToList();
+            Title = title;
+            _authors = authors.ToList();
         }
     }
 }

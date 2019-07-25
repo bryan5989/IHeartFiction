@@ -6,7 +6,6 @@
  * https://www.gnu.org/licenses/gpl-3.0.en.html
  */
 
-using IHeartFiction.Domain.Models;
 using IHeartFiction.Domain.SeedWork;
 using System.Threading.Tasks;
 

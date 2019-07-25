@@ -8,9 +8,18 @@
 
 using MediatR;
 
-namespace IHeartFiction.Domain.Events
+namespace IHeartFiction.Domain.Events.Story
 {
-    public class ChapterModified : INotification
+    public class CommentRemoved : INotification
     {
+        public int StoryId { get; }
+
+        public int CommentId { get; }
+
+        public CommentRemoved(int storyId, int commentId)
+        {
+            StoryId = storyId;
+            CommentId = commentId;
+        }
     }
 }

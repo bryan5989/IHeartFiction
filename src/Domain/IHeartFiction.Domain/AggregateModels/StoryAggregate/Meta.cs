@@ -7,11 +7,10 @@
  */
 
 using System.Collections.Generic;
-using IHeartFiction.Domain.SeedWork;
 
 namespace IHeartFiction.Domain.AggregateModels.StoryAggregate
 {
-    public class Meta : ValueObject
+    public class Meta
     {
         public bool AllowsAnonymousContent { get; }
 

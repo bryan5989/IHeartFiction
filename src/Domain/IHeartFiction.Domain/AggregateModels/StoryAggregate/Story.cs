@@ -6,9 +6,8 @@
  * https://www.gnu.org/licenses/gpl-3.0.en.html
  */
 
-using IHeartFiction.Domain.Events;
+using IHeartFiction.Domain.Events.Story;
 using IHeartFiction.Domain.Exceptions;
-using IHeartFiction.Domain.Models;
 using IHeartFiction.Domain.SeedWork;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
@@ -81,7 +80,14 @@ namespace IHeartFiction.Domain.AggregateModels.StoryAggregate
 
         public void AddChapter(string title, string htmlContent, int? chapterNumber = null)
         {
-            
+            Contract.Requires(!string.IsNullOrEmpty(title));
+            Contract.Requires(!string.IsNullOrEmpty(htmlContent));
+
+            var chapter = new Chapter(this.Id, title, htmlContent, chapterNumber);
+
+            _chapters.Add(chapter);
+
+            AddDomainEvent(new ChapterAdded(this.Id, title, htmlContent));
         }
 
         public void RemoveChapter(int id)
@@ -92,6 +98,29 @@ namespace IHeartFiction.Domain.AggregateModels.StoryAggregate
             _chapters.Remove(chapter);
 
             AddDomainEvent(new ChapterRemoved(this.Id, id));
+        }
+
+        public void UpdateChapter(int id, string title, string htmlContent, int? chapterNumber = null)
+        {
+            Contract.Requires<ChapterDoesNotExist>(_chapters.Count(p => p.Id == id) != 0);
+
+            var chapter = _chapters.Find(p => p.Id == id);
+            if(chapter.Title != chapter.Title)
+            {
+                chapter.UpdateTitle(title);
+            }
+
+            if(chapter.HtmlContent != htmlContent)
+            {
+                chapter.UpdateContent(htmlContent);
+            }
+
+            if(chapter.ChapterNumber != chapterNumber)
+            {
+                chapter.SetOrderTo(chapterNumber);
+            }
+
+            AddDomainEvent(new ChapterModified(this.Id, id, title, htmlContent));
         }
     }
 }
