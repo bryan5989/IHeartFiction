@@ -12,23 +12,22 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace IHeartFiction.Infrastructure.Configurations.StoryConfigurations
 {
+    /// <summary>
+    ///     Configures the <see cref="Story">story</see> <see cref="Author">author</see> via
+    ///     the <see cref="IEntityTypeConfiguration{TEntity}">entity type configuration.</see>
+    /// </summary>
     public class AuthorEntityTypeConfiguration : IEntityTypeConfiguration<Author>
     {
+        /// <summary>
+        ///     Ensures that the database uses the <see cref="Author">author</see>'s name as primary key.
+        /// </summary>
+        /// <param name="builder">
+        ///     Helps build the entity in terms of Entity Framework.
+        /// </param>
         public void Configure(EntityTypeBuilder<Author> builder)
         {
             builder
-                .Ignore(p => p.DomainEvents);
-
-            builder
-                .HasKey(p => p.Id);
-
-            builder
-                .Property(p => p.Id)
-                .ValueGeneratedNever();
-
-            builder
-                .Property(p => p.Name)
-                .IsRequired();
+                .HasKey(p => p.Name);
         }
     }
 }

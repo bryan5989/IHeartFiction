@@ -1,0 +1,28 @@
+﻿<article class="post mt-2 m-1 p-1 border">
+    <header>
+        <div class="small">
+            <span class="posted-on">
+                @Created 
+            </span>
+        </div>
+        <h2 class="h2 title">
+            @Title
+        </h2>
+    </header>
+    <div class="content">
+        <p>
+            @Description 
+        </p>
+    </div>
+</article>
+
+@code {
+    [Parameter]
+    private DateTime Created { get; set; }
+
+    [Parameter]
+    private string Title { get; set; }
+
+    [Parameter]
+    private string Description { get; set; }
+}

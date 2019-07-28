@@ -7,13 +7,14 @@
  */
 
 using IHeartFiction.Domain.SeedWork;
-using IHeartFiction.Infrastructure.Configurations.StoryConfigurations;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 using StoryAggregate = IHeartFiction.Domain.AggregateModels.StoryAggregate;
+using StoryConfiguration = IHeartFiction.Infrastructure.Configurations.StoryConfigurations;
+using StorySeed = IHeartFiction.Infrastructure.Seeds.StorySeed;
 
 namespace IHeartFiction.Infrastructure
 {
@@ -45,10 +46,14 @@ namespace IHeartFiction.Infrastructure
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.ApplyConfiguration(new AuthorEntityTypeConfiguration());
-            builder.ApplyConfiguration(new ChapterEntityTypeConfiguration());
-            builder.ApplyConfiguration(new CommentEntityTypeConfiguration());
-            builder.ApplyConfiguration(new StoryEntityTypeConfiguration());
+            builder.ApplyConfiguration(new StoryConfiguration.AuthorEntityTypeConfiguration());
+            builder.ApplyConfiguration(new StoryConfiguration.ChapterEntityTypeConfiguration());
+            builder.ApplyConfiguration(new StoryConfiguration.CommentEntityTypeConfiguration());
+            builder.ApplyConfiguration(new StoryConfiguration.StoryEntityTypeConfiguration());
+
+#if DEBUG
+            builder.ApplyConfiguration(new StorySeed.AuthorSeed());
+#endif
         }
     }
 }
