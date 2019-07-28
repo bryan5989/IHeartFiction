@@ -22,17 +22,19 @@ namespace IHeartFiction.Domain.AggregateModels.StoryAggregate
         private readonly List<Author> _authors;
 
         public string Title { get; private set; }
+        public string Description { get; private set; }
 
         public IReadOnlyCollection<Author> Authors => _authors;
         public IReadOnlyCollection<Chapter> Chapters => _chapters;
         public IReadOnlyCollection<Comment> Comments => _comments;
 
-        public Story(string title, params Author[] authors)
+        public Story(string title, string description, params Author[] authors)
         {
             Contract.Requires(!string.IsNullOrEmpty(title));
             Contract.Requires(authors.Length >= 1);
 
-            this.Title = title;
+            Title = title;
+            Description = description;
 
             _authors = authors.ToList();
             _chapters = new List<Chapter>();
