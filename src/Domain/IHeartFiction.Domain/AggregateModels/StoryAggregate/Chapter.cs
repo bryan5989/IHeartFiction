@@ -11,8 +11,14 @@ using IHeartFiction.Domain.SeedWork;
 
 namespace IHeartFiction.Domain.AggregateModels.StoryAggregate
 {
+    /// <summary>
+    ///     A unit of content within a <see cref="Story">story</see>.
+    /// </summary>
     public class Chapter : Entity
     {
+        /// <summary>
+        ///     The unique identifier of the <see cref="Story">story</see> that the chapter belongs to.
+        /// </summary>
         public int StoryId { get; }
 
         /// <summary>

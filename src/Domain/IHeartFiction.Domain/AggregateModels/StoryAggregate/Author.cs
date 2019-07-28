@@ -10,8 +10,15 @@ using IHeartFiction.Domain.SeedWork;
 
 namespace IHeartFiction.Domain.AggregateModels.StoryAggregate
 {
+    /// <summary>
+    ///     Relates to the name of an author in the context of a <see cref="Story">story</see>.
+    ///     Not the final resting place of an author.
+    /// </summary>
     public class Author : Entity
     {
+        /// <summary>
+        ///     The name of the author.
+        /// </summary>
         public string Name { get; set; }
     }
 }
