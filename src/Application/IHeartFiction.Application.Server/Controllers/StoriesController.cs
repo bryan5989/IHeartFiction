@@ -16,14 +16,35 @@ using System.Threading.Tasks;
 
 namespace IHeartFiction.Application.Server.Controllers
 {
+    /// <summary>
+    ///     Returns <see cref="StoryDescriptionDto">story description data transfer object</see> via
+    ///     stardard create, update, read, delete methodologies.
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class StoriesController : ControllerBase
     {
         private readonly IStoryRepository _repository;
 
+        /// <summary>
+        ///     Default constructor expects an <see cref="IStoryRepository">story repository</see> through
+        ///     dependency injection. Allows for easily switching of backend.
+        /// </summary>
+        /// <param name="storyRepository"></param>
         public StoriesController(IStoryRepository storyRepository) => _repository = storyRepository;
 
+        /// <summary>
+        ///     Get a specific page of the stories.
+        /// </summary>
+        /// <param name="page">
+        ///     The page to access of stories.
+        /// </param>
+        /// <param name="perPage">
+        ///     The amount of stories per page.
+        /// </param>
+        /// <returns>
+        ///     A paginated view of stories.
+        /// </returns>
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult<Paginated<StoryDescriptionDto>>> Get(int page = 0, int perPage = 10)

@@ -47,7 +47,9 @@ namespace IHeartFiction.Application.Server.Dtos
         ///     The description of the story.
         ///     Will be limited to 100 characters.
         /// </param>
-        /// <param name="authors"></param>
+        /// <param name="authors">
+        ///     A collection of author's names.
+        /// </param>
         public StoryDescriptionDto(int id, string title, string description, ICollection<string> authors)
         {
             Contract.Requires(id > 0);
@@ -60,6 +62,13 @@ namespace IHeartFiction.Application.Server.Dtos
             Authors = authors;
         }
 
+        /// <summary>
+        ///     Implicit cast from a story to a story description.
+        ///     This allows for the frontend to only receive necessary informatio .
+        /// </summary>
+        /// <param name="story">
+        ///     The story that we'll be converting to the minimum needed information.
+        /// </param>
         public static implicit operator StoryDescriptionDto(Story story)
         {
             var description = new StoryDescriptionDto(
