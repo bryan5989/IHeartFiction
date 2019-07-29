@@ -16,23 +16,23 @@ namespace IHeartFiction.Domain.AggregateModels.StoryAggregate
     {
         public int StoryId { get; set; }
 
-        public Author Author { get; }
+        public string AuthorName { get; }
         public DateTime Modified { get; private set; }
 
         public string Content { get; private set;  }
 
-        public Comment(Author author, string content)
+        public Comment(string authorName, string content)
         {
-            this.Author = author;
-            this.Content = content;
+            AuthorName = authorName;
+            Content = content;
         }
 
         public void Modify(string content)
         {
-            this.Modified = DateTime.Now;
-            this.Content = content;
+            Modified = DateTime.Now;
+            Content = content;
 
-            this.AddDomainEvent(new CommentModified(this.StoryId, this.Id, this.Content));
+            AddDomainEvent(new CommentModified(this.StoryId, this.Id, this.Content));
         }
     }
 }

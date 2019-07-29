@@ -40,12 +40,9 @@ namespace IHeartFiction.Infrastructure.Configurations.StoryConfigurations
                 .IsRequired(false);
 
             builder
-                .Property(p => p.Author)
-                .IsRequired(false);
-
-            builder
-                .HasOne(p => p.Author)
-                .WithMany();
+                .HasOne<Author>()
+                .WithMany()
+                .HasForeignKey(p => p.AuthorName);
         }
     }
 }
